@@ -1,15 +1,15 @@
 public class Converter {
 
-    final int STEP_LENGTH = 75; // длинна шага в сантиметрах
-    final int SM_TO_KM = 100000; // если честно я не могу придумать как назвать эту переменную, понимаю что это название ужасно - но ничего другого в голову не пришло
-    final int STEP_KAL = 50; // количество калорий за один шаг
-    final int KAL_TO_KKAL = 1000; // по аналогии с переменной выше
-    public double convertToDistance(double step) {
-         return (step * STEP_LENGTH) / SM_TO_KM;
+    private static final int STEP_LENGTH = 75;
+    private static final int CENTIMETERS_PER_KILOMETER = 100000;
+    private static final int CALL_TO_STEP = 50;
+    private static final int CAL_TO_KCAL = 1000;
+
+    public double convertToDistance(double steps) {
+         return (steps * STEP_LENGTH) / CENTIMETERS_PER_KILOMETER;
     }
 
-    public double convertKKal(double step) {
-        double kkal = (step * STEP_KAL) / KAL_TO_KKAL;
-        return kkal;
+    public double convertToKcal(double steps) {
+         return (steps * CALL_TO_STEP) / CAL_TO_KCAL;
     }
 }

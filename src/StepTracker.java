@@ -13,7 +13,7 @@ public class StepTracker {
     }
 
     private static class MonthData {
-       private int[] stepsPerDay = new int[30];
+       private final int[] stepsPerDay = new int[30];
     }
 
     public void saveSteps(int month, int day, int steps) {
@@ -33,13 +33,9 @@ public class StepTracker {
     public void changeGoal()  {
         Scanner scanner = new Scanner(System.in);
         goalSteps = scanner.nextInt();
-        while (true) {
-            if (goalSteps >= 0) {
-                break;
-            } else {
-                System.out.println("Ввод отрицательного количества шагов запрещен! Введите корректное количество шагов.");
-                goalSteps = scanner.nextInt();
-            }
+        while (goalSteps < 0) {
+            System.out.println("Ввод отрицательного количества шагов запрещен! Введите корректное количество шагов.");
+            goalSteps = scanner.nextInt();
         }
     }
 
@@ -47,7 +43,6 @@ public class StepTracker {
         Converter converter = new Converter();
         int allStepsPerMonth = 0;
         int maxStepsPerDay = 0;
-        int averageStepsPerMonth = 0;
         int streakCounter = 0;
         int streak = 0;
         for (int i = 0; i < 30; i++) {
@@ -65,13 +60,13 @@ public class StepTracker {
                 streakCounter = 0;
             }
         }
-        averageStepsPerMonth = allStepsPerMonth / 30;
+        int averageStepsPerMonth = allStepsPerMonth / 30;
         System.out.println();
         System.out.println("Общее количество шагов за месяц: " + allStepsPerMonth);
         System.out.println("Максимальное пройденное количество шагов в месяце: " + maxStepsPerDay);
         System.out.println("Среднее количество шагов в месяце: " + averageStepsPerMonth);
         System.out.println("Пройденная дистанция в км: " + converter.convertToDistance(allStepsPerMonth));
-        System.out.println("Количество сожжённых килокалорий: " + converter.convertKKal(allStepsPerMonth));
+        System.out.println("Количество сожжённых килокалорий: " + converter.convertToKcal(allStepsPerMonth));
         System.out.println("Лучшая серия: " + streak);
     }
 }
