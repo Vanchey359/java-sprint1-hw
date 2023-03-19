@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final String test = "Test";
+    private static final String test = "Teeest";
     private static final int END_PROGRAM = 0;
     private static final int SAVE_STEP_PER_DAY = 1;
     private static final int PRINT_STATISTICS = 2;
