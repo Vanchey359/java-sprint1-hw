@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class StepTracker {
 
+    /*
+    Todo: clean up code
+     */
+
     private final MonthData[] monthToData;
     private int goalSteps = 10000;
 
